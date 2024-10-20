@@ -38,21 +38,13 @@ namespace BookStore.API.Controllers
             return Ok(bookReviewDto);
         }
 
-         [HttpPost]
+        [HttpPost]
         [Route("create")]
         public async Task<IActionResult> Create([FromForm] CreateBookReviewDto bookReviewDto)
         {
             if(!ModelState.IsValid) return BadRequest(ModelState);
-
-            var user = await _userManager.GetUserAsync(HttpContext.User);
-        
-            var bookReviewModel = new BookReview
-            {
-                ReviewDate = DateTime.Now,
-                ReviewNotes = bookReviewDto.ReviewNotes,
-                BookId = bookReviewDto.BookId,
-                ReviewerId = user.Id
-            };
+            
+            var bookReviewModel = bookReviewDto.ToBookReviewFromCreateDto();
             await _bookReviewService.CreateAsync(bookReviewModel);
             return CreatedAtAction(nameof(GetById),new { id = bookReviewModel.Id }, bookReviewModel.ToBookReviewDto());
         }

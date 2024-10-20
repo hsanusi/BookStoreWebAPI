@@ -185,7 +185,7 @@ namespace BookStore.API.Migrations
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsBookOfTheMonth = table.Column<bool>(type: "bit", nullable: false),
                     PictureFileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BookCategoryId = table.Column<int>(type: "int", nullable: false)
+                    BookCategoryId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -194,8 +194,7 @@ namespace BookStore.API.Migrations
                         name: "FK_Books_BookCategories_BookCategoryId",
                         column: x => x.BookCategoryId,
                         principalTable: "BookCategories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -225,8 +224,8 @@ namespace BookStore.API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "c766b4e7-6824-4539-a834-052f66fc1c27", null, "Admin", "ADMIN" },
-                    { "f2e6a50b-3051-46d7-bbc8-de278275a6ec", null, "Reviewer", "REVIEWER" }
+                    { "8dedd7d8-31e0-40b9-babb-c8920ca95636", null, "Reviewer", "REVIEWER" },
+                    { "afdd0344-b650-4d64-aa16-24d02d08ddb5", null, "Admin", "ADMIN" }
                 });
 
             migrationBuilder.CreateIndex(

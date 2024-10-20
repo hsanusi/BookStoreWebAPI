@@ -47,12 +47,12 @@ namespace BookStore.API.Services
 
         public async Task<List<BookCategory>> GetAllAsync()
         {
-           return await _context.BookCategories.ToListAsync();
+           return await _context.BookCategories.Include(b => b.Books).ToListAsync();
         }
 
         public async Task<BookCategory?> GetByIdAsync(int id)
         {
-            return await _context.BookCategories.FirstOrDefaultAsync(x => x.Id == id);
+            return await _context.BookCategories.Include(b => b.Books).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<BookCategory?> UpdateAsync(int id, UpdateBookCategoryDto updateDto)

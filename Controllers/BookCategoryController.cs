@@ -69,5 +69,20 @@ namespace BookStore.API.Controllers
            }
             return Ok(bookCategoryModel.ToBookCategoryDto());
         }
+
+        [HttpDelete]
+        [Route("delete/{id:int}")]
+
+        public async Task<IActionResult> Delete([FromRoute] int id)
+        {
+             var bookCategoryModel = await _categoryService.DeleteAsync(id);
+             if(bookCategoryModel ==null)
+             {
+                return NotFound();
+             }
+             _context.BookCategories.Remove(bookCategoryModel);
+             await _context.SaveChangesAsync();
+             return NoContent();
+        }
     }
 }

@@ -22,7 +22,9 @@ namespace BookStore.API.Mappers
                 CreatedOn = bookModel.CreatedOn,
                 IsBookOfTheMonth = bookModel.IsBookOfTheMonth,
                 BookCategoryId = bookModel.BookCategoryId,
-                PictureFileName = bookModel.PictureFileName
+                PictureFileName = bookModel.PictureFileName,
+                BookReviews = bookModel.BookReviews.Select(br => br.ToBookReviewDto()).ToList()
+                
             };
         }
 

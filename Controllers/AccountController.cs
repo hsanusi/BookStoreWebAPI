@@ -36,7 +36,7 @@ namespace BookStore.API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginDto loginDto)
+        public async Task<IActionResult> Login([FromForm] LoginDto loginDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -66,6 +66,8 @@ namespace BookStore.API.Controllers
                 return Ok(
                     new 
                     { 
+                        userid = authClaims,
+                        user = user,
                         token = new JwtSecurityTokenHandler().WriteToken(token) 
 
                     });

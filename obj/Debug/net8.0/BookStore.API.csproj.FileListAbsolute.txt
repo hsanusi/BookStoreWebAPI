@@ -147,3 +147,4 @@ C:\Users\sa250312\OneDrive - NCR ATLEOS\Documents\CSharp\Idayat\project\BookStor
 C:\Users\sa250312\OneDrive - NCR ATLEOS\Documents\CSharp\Idayat\project\BookStore.API\obj\Debug\net8.0\BookStore.API.pdb
 C:\Users\sa250312\OneDrive - NCR ATLEOS\Documents\CSharp\Idayat\project\BookStore.API\obj\Debug\net8.0\BookStore.API.genruntimeconfig.cache
 C:\Users\sa250312\OneDrive - NCR ATLEOS\Documents\CSharp\Idayat\project\BookStore.API\obj\Debug\net8.0\ref\BookStore.API.dll
+C:\Users\sa250312\OneDrive - NCR ATLEOS\Documents\CSharp\Idayat\project\BookStore.API\obj\Debug\net8.0\BookStore.API.sourcelink.json

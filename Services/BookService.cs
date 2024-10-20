@@ -50,13 +50,13 @@ namespace BookStore.API.Services
 
         public async Task<List<Book>> GetAllAsync()
         {
-           return await _context.Books.ToListAsync();
+           return await _context.Books.Include(r => r.BookReviews).ToListAsync();
             
         }
 
         public async Task<Book?> GetByIdAsync(int id)
         {
-            return await _context.Books.FirstOrDefaultAsync(x => x.Id == id);
+            return await _context.Books.Include(r => r.BookReviews).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<Book?> UpdateAsync(int id, UpdateBookDto updateDto)

@@ -46,7 +46,7 @@ namespace BookStore.API.Controller
             var bookModel = bookDto.ToBookFromCreateDto();
             await _bookService.CreateAsync(bookModel);
             return CreatedAtAction(nameof(GetById),new { id = bookModel.Id }, bookModel.ToBookDto());
-        }
+        } 
 
         [HttpGet("{id:int}")]
 

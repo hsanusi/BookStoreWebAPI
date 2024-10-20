@@ -17,7 +17,6 @@ namespace BookStore.API.Models
 
         public int BookId { get; set; }
 
-        public Book Book { get; set; } = null!;
-
+        public Book? Book { get; set;}
     }
 }

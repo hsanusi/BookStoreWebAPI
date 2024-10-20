@@ -34,11 +34,11 @@ namespace BookStore.API.Data
                 .IsRequired();
 
             builder.Entity<BookCategory>()
-            .HasMany(c => c.Books)
-            .WithOne(c => c.BookCategory)
-            .HasForeignKey(c => c.BookCategoryId)
-            .IsRequired();
-            
+                .HasMany(c => c.Books)
+                .WithOne(c => c.BookCategory)
+                .HasForeignKey(c => c.BookCategoryId)
+                .IsRequired();
+
 
             List<IdentityRole> roles = new List<IdentityRole>
             {

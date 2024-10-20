@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookStore.API.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20241019195257_init")]
+    [Migration("20241020105302_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -103,7 +103,6 @@ namespace BookStore.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("BookCategoryId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("BookName")
@@ -209,13 +208,13 @@ namespace BookStore.API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c766b4e7-6824-4539-a834-052f66fc1c27",
+                            Id = "afdd0344-b650-4d64-aa16-24d02d08ddb5",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "f2e6a50b-3051-46d7-bbc8-de278275a6ec",
+                            Id = "8dedd7d8-31e0-40b9-babb-c8920ca95636",
                             Name = "Reviewer",
                             NormalizedName = "REVIEWER"
                         });
@@ -331,22 +330,18 @@ namespace BookStore.API.Migrations
                 {
                     b.HasOne("BookStore.API.Models.BookCategory", "BookCategory")
                         .WithMany("Books")
-                        .HasForeignKey("BookCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BookCategoryId");
 
                     b.Navigation("BookCategory");
                 });
 
             modelBuilder.Entity("BookStore.API.Models.BookReview", b =>
                 {
-                    b.HasOne("BookStore.API.Models.Book", "Book")
+                    b.HasOne("BookStore.API.Models.Book", null)
                         .WithMany("BookReviews")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

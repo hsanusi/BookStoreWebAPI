@@ -27,7 +27,7 @@ namespace BookStore.API.Models
 
         public BookCategory? BookCategory { get; set; }
 
-        public List<BookReview>? BookReviews { get; } = new List<BookReview>();
+        public List<BookReview> BookReviews { get; } = new List<BookReview>();
 
         //public IFormFile? BookPicture { get; set; }
 

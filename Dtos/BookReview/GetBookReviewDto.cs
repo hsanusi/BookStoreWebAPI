@@ -18,6 +18,5 @@ namespace BookStore.API.Dtos.BookReview
 
         public int BookId { get; set; }
 
-        public Book Book { get; set; } = null!;
     }
 }

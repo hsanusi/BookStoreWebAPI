@@ -8,16 +8,10 @@ namespace BookStore.API.Dtos.BookReview
 {
     public class CreateBookReviewDto
     {
-        public int Id { get; set; }    
-
-        public string? ReviewerId { get; set; }
 
         public string? ReviewNotes { get; set; }
 
-        public DateTime ReviewDate { get; set; }
-
         public int BookId { get; set; }
 
-        public Book Book { get; set; } = null!;
     }
 }

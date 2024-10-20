@@ -19,20 +19,22 @@ namespace BookStore.API.Mappers
             {
                 ReviewNotes = bookReviewModel.ReviewNotes,
                 ReviewDate = bookReviewModel.ReviewDate,
-                ReviewerId = bookReviewModel.ReviewerId
-              
+                ReviewerId = bookReviewModel.ReviewerId,
+                BookId = bookReviewModel.BookId,
+                Id = bookReviewModel.Id
             };
         }
 
-        // public static  BookReview ToBookReviewFromCreateDto(this CreateBookReviewDto bookDto)
-        // {
+        public static  BookReview ToBookReviewFromCreateDto(this CreateBookReviewDto bookDto)
+        {
     
-        //     return new BookReview
-        //     {
-        //         ReviewNotes = bookDto.ReviewNotes,
-        //         ReviewDate = DateTime.Now,
-        //         ReviewerId = User.Fin
-        //     };
-        // }
+            return new BookReview
+            {
+                ReviewNotes = bookDto.ReviewNotes,
+                ReviewDate = DateTime.Now,
+                BookId = bookDto.BookId,
+                ReviewerId = "Hammed" 
+            };
+        }
     }
 }

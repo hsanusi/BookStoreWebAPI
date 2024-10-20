@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BookStore.API.Dtos.BookReview;
 
 namespace BookStore.API.Dtos.BookDtos
 {
@@ -25,6 +26,6 @@ namespace BookStore.API.Dtos.BookDtos
 
         public int? BookCategoryId { get; set; }
 
-
+        public  List<GetBookReviewDto>? BookReviews { get; set; }
     }
 }
